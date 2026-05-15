@@ -1,0 +1,22 @@
+<%# create a form with input section for user & submit button %>
+<%# display the random letters  %>
+<div class="container pt-5">
+<h1>New Game</h1>
+  <div class="bg-primary text-light d-inline-flex px-3 py-2 fw-bold fs-2 rounded">
+    <%= @letters %>
+  </div>
+
+  <div class="row pt-3">
+
+    <form action="/score" method="post" data-turbo="false">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :letters, @letters %>
+
+      <label for="word" class="form-label">What is the longest word you can find?</label>
+    <div class="input-group w-50">
+      <input type="text" class="form-control" id="word" name="word">
+      <button type="submit" class="btn btn-primary">Play</button>
+    </div>
+    </form>
+  </div>
+</div>
